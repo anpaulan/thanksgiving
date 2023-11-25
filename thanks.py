@@ -1,10 +1,19 @@
 import random as r
 
 class ThanksgivingGuestList:
-    def __init__(self, guests:list):
+    def __init__(self, guests):
         self.guests = guests
-        self.dishes = ['macaroni and cheese', ' pecan pie' ,' winter squash' ,'sweet potatoes', 'coffee' , 'biscuits', 'salad', 'dressing' ,' gravy', 'corn', 'cranberry sauce' , 'quiche']
+        self.guest_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
+        self.dishes = ['macaroni and cheese', 'pecan pie' ,'winter squash' ,'sweet potatoes', 'coffee' , 'biscuits', 'salad', 'dressing' ,'gravy', 'corn', 'cranberry sauce' , 'quiche']
         self.assignment= {}
+
+    def add_dish(self, dish):
+        self.dish = dish
+        self.dishes.append(dish)
+
+    def add_guest(self, guest):
+        self.guest = guest
+        self.guests.append(guest)
 
     def randomize_guest(self):
         r.shuffle(self.dishes) #chages order of the dishes
@@ -20,13 +29,25 @@ class ThanksgivingGuestList:
     def print_guest_dish(self,guest):
         self.guest = guest # takes which guest you want to check
         if guest in self.assignment: # makes sure the guest is in the list
-            print(f'{guest} has been assigned {self.assignment[guest]}')
+            print(f"{guest}'s Dish: {self.assignment[guest]}")
         else:
             print('Imaginary friends do not count') #saying guest does not exist in your guest list
 
-guests = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'] #can add more if you want
+    def enough_food(self):
+        if len(self.guest_list) > len(self.dishes):
+            print('There is not enough food')
+        else: 
+            print('You will be eating good tonight!')
+        
+        pass
+
+guests = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
 thanksgiving = ThanksgivingGuestList(guests)
+thanksgiving.add_dish('Z')
+thanksgiving.add_dish('O')
+thanksgiving.add_guest('X')
 thanksgiving.randomize_guest()
 thanksgiving.print_list()
+thanksgiving.enough_food()
 guest_to_check = 'z'  # Change this to check assignments for different guests
 thanksgiving.print_guest_dish(guest_to_check)
