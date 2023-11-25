@@ -22,8 +22,7 @@ class ThanksgivingGuestList:
             self.assignment[self.guests[i]] = self.dishes[i] #assigns dish to a person
 
     def print_list(self):
-        print('Thanksgiving Guest List')
-        for guest,dish in self.assignment.items(): # this prints everyone in the list with their assigned dish
+        print('Thanksgiving Guest List \n')
             print(f'{guest}: {dish}')
     
     def print_guest_dish(self,guest):
@@ -33,8 +32,8 @@ class ThanksgivingGuestList:
         else:
             print('Imaginary friends do not count') #saying guest does not exist in your guest list
 
-    def enough_food(self):
-        if len(self.guest_list) > len(self.dishes):
+    def enough_food(self): #only works if there is more food than people, if more people, print list does not work, did not have enough time to figure that bit out
+        if len(self.guest_list) > len(self.dishes): 
             print('There is not enough food')
         else: 
             print('You will be eating good tonight!')
